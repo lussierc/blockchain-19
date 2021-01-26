@@ -5,7 +5,7 @@
 ## Description of the Concept:
 Using extensive blockchain concepts to keep a detailed ledger of COVID-19 patient movement and statuses.
 
-This project will expand upon the concepts conveyed via the Blockchain Game played in the CMPSC 390 class, but with a real-world twist as it will relate to COVID-19. The blockchain will will use in patient attributes such as the hospital they reside in, patient ID, and level of care as base inputs. It will then calculate the hash (using a variation of the hash function used in this game) of each patient based on these attributes and the previous hash in the blockchain. By using a blockchain with hash technology, patients can ensure that their private information is confidentially secured.
+This project will expand upon the concepts conveyed via the Blockchain Game played in the CMPSC 390 class, but with a real-world twist as it will relate to COVID-19. The blockchain will will use in patient attributes such as the hospital they reside in, patient ID, and level of care as base inputs. It will then calculate the hash (using a variation of the hash function used in this game) of each patient based on these attributes and the previous hash in the blockchain. By using a blockchain with hash technology, patients can ensure that their private information is confidentially secured and that it won't be released.
 
 ## Relevance and Motivation of the Concept:
 
