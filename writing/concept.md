@@ -1,4 +1,4 @@
-# Informative Title for the Project
+# Blockchain-19
 
 ## Add Your Name(s): Christian Lussier, Jordan Wilson, Ryan Hilty
 
