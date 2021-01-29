@@ -5,7 +5,7 @@
 ## Description of the Concept:
 Using extensive blockchain concepts to keep a detailed ledger of COVID-19 patient movement and statuses.
 
-This project will expand upon the concepts conveyed via the Blockchain Game played in the CMPSC 390 class, but with a real-world twist as it will relate to COVID-19. The blockchain will will use in patient attributes such as the hospital they reside in, patient ID, and level of care as base inputs. It will then calculate the hash (using a variation of the hash function used in this game) of each patient based on these attributes and the previous hash in the blockchain. By using a blockchain with hash technology, patients can ensure that their private information is confidentially secured and that it won't be released.
+This project will expand upon the concepts conveyed via the Blockchain Game played in the CMPSC 390 class, but with a real-world twist as it will relate to COVID-19. The project will involve the creation of a Python program that serves as a blockchain ledger of COVID-19 information, meaning that users will utilize the program to enter in patient information. After the information is entered, the program will automatically calculate the hash content in the blockchain based on this patient information. The blockchain will use patient attributes such as the hospital they reside in, patient ID, and level of care as base inputs. It will then calculate the hash (using a variation of the hash function used in this game) of each patient based on these attributes and the previous hash in the blockchain. By using a blockchain with hash technology, patients can ensure that their private information is confidentially secured and that it won't be released.
 
 ## Relevance and Motivation of the Concept:
 
@@ -15,12 +15,12 @@ In our research with cryptocurrencies, we have run into an algorithm known commo
 
 ## Description of the Tasks to Complete:
 
-- *Finalize the attributes of the blockchain:*
-- *Do a run-through/manual run of our blockchain concept on a new ledger:*
-- *Begin implementation of the hash solver in Python:*
-- *Finalize and test accuracy of hash solver:*
-- *Implement open ledger capabilities (allow users to enter their own entries into the blockchain, which are then converted using the hash solver):*
-- *Implement feature allowing user to export/import their blockchain file using a CSV:*
+- *Finalize the attributes of the blockchain.*
+- *Do a run-through/manual run of our blockchain concept on a new ledger.*
+- *Begin implementation of the hash solver in Python.*
+- *Finalize and test accuracy of hash solver.*
+- *Implement open ledger capabilities (allow users to enter their own entries into the blockchain, which are then converted using the hash solver).*
+- *Implement feature allowing user to export/import their blockchain file using a CSV.*
 
 ## Timeline to Complete the Project:
 
