@@ -1,6 +1,8 @@
-# Base file
+# Blockchain19 Program
 
 def main():
+    """The main driver function for the project."""
+    
     user_choice = input(" - Enter 1 to Create a New Ledger.\n - Enter 2 to Import a Previously Exported Ledger.\nEnter your choice: ")
 
     if int(user_choice) == 1:
