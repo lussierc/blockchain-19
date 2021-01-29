@@ -20,7 +20,7 @@ In our research with cryptocurrencies, we have run into an algorithm known commo
 - *Begin implementation of the hash solver in Python.*
 - *Finalize and test accuracy of hash solver.*
 - *Implement open ledger capabilities (allow users to enter their own entries into the blockchain, which are then converted using the hash solver).*
-- *Implement feature allowing user to export/import their blockchain file using a CSV.*
+- *Implement feature allowing user to export/import their blockchain file using a CSV.b*
 
 ## Timeline to Complete the Project:
 
