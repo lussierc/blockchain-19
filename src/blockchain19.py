@@ -33,13 +33,24 @@ def main():
 
     if int(user_choice) == 1:
         print("Creating a new ledger!")
-        create_ledger()
+        new_ledger_unhashed = create_ledger()
+        solve_ledger_hashes(new_ledger_unhashed)
     elif int(user_choice) == 2:
         print("Importing a previous ledger!")
         import_ledger()
     elif int(user_choice) == 3:
         print("Opening the info center!")
         welcome_message()
+        run_choice = input(color.GREEN + " Run the Program: \n - Enter 1 to Create a New Ledger.\n - Enter 2 to Import a Previously Exported Ledger.\nEnter your choice: " + color.END)
+        if int(run_choice) == 1:
+            print("Creating a new ledger!")
+            create_ledger()
+        elif int(run_choice) == 2:
+            print("Importing a previous ledger!")
+            import_ledger()
+        else:
+            print("Invalid option. Creating a new ledger!")
+            create_ledger()
     else:
         print("Invalid option. Creating a new ledger!")
         create_ledger()
@@ -71,14 +82,64 @@ def create_ledger():
         new_block = input("*** Would you like to add another block to the blockchain? Y or N: ")
         if str(new_block) == 'Y':
             pass
-            current_patient_dict = {'hospital': '', 'patient': '', 'status': '', 'nonce': '', 'a': '', 'b': '', 'c': '', 'hash': ''}
+            current_patient_dict = {'hospital': '', 'patient': '', 'status': '', 'nonce': 0, 'prev_hash': 0, 'a': 0, 'b': 0, 'c': 0, 'hash': 0}
         else:
             done_adding = True
 
     print("PRINTING LIST OF PATIENT BLOCKS: ", patient_blocks)
+    return patient_blocks
 
 def import_ledger():
     """Imports a previously exported ledger."""
     print("** IMPORTING LEDGER....")
+
+def solve_ledger_hashes(new_ledger_unhashed):
+    """Given a imported or newly created ledger, this function will solve it's hashes."""
+
+    prev_hash = 412
+    nonce = 0
+    a = 0
+    b = 0
+    c = 0
+    current_hash = 0
+
+    for block in new_ledger_unhashed:
+        if block['prev_hash'] == 0:
+            prev_hash = 412
+        else:
+            prev_hash = block['prev_hash']
+
+        prev_hash = int(str(prev_hash)[-2:])
+
+        a = ascii(find_first_letter(block['hospital']))
+        b = ascii(find_first_letter(block['patient']))
+        c = ascii(block['status'])
+
+        intermediate_hash = (a + b + c) - prev_hash
+
+        nonce = find_nonce(intermediate_hash)
+
+        current_hash = nonce + intermediate_hash
+        print("current hash", current_hash)
+
+def find_first_letter(string):
+    """Finds first letter in a given string."""
+
+def find_nonce(intermediate_hash):
+    """Given the hash in it's intermediate step, finds the nonce."""
+
+    for nonce in range(1, 4):
+        test_hash = (intermediate_hash + nonce) / 3
+        if test_hash.is_integer():
+            print("NONCE", nonce)
+            return nonce
+        else:
+            pass
+
+def ascii(letter):
+    """Gets ascii value of a given letter."""
+
+
+
 
 main()
