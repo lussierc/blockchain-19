@@ -154,7 +154,9 @@ def find_nonce(intermediate_hash):
 
 def ascii(letter):
     """Gets ascii value of a given letter."""
-
+    ascii_val = ord(letter.upper())
+    
+    return ascii_val
 
 
 
