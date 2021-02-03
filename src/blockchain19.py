@@ -35,8 +35,11 @@ def main():
 
     if int(user_choice) == 1:
         print("Creating a new ledger!")
-        new_ledger_unhashed = create_ledger()
-        solve_ledger_hashes(new_ledger_unhashed)
+        new_ledger = create_ledger()
+        new_hashed_ledger = solve_ledger_hashes(new_ledger)
+
+        for block in new_hashed_ledger:
+            print("BLOCK -- ", block)
     elif int(user_choice) == 2:
         print("Importing a previous ledger!")
         import_ledger()
@@ -67,7 +70,7 @@ def create_ledger():
 
     done_adding = False
     patient_blocks = []
-    current_patient_dict = {'hospital': '', 'patient': '', 'status': '', 'nonce': '', 'a': '', 'b': '', 'c': '', 'hash': ''}
+    current_patient_dict = {'hospital': '', 'patient': '', 'status': '', 'nonce': 0, 'prev_hash': 0, 'a': 0, 'b': 0, 'c': 0, 'hash': 0}
 
     while done_adding is False:
         hospital_input = input(" - Enter Patient Hospital: ")
@@ -95,7 +98,7 @@ def import_ledger():
     """Imports a previously exported ledger."""
     print("** IMPORTING LEDGER....")
 
-def solve_ledger_hashes(new_ledger_unhashed):
+def solve_ledger_hashes(new_ledger):
     """Given a imported or newly created ledger, this function will solve it's hashes."""
 
     prev_hash = 412
@@ -104,15 +107,15 @@ def solve_ledger_hashes(new_ledger_unhashed):
     b = 0
     c = 0
     current_hash = 0
+    cur_block = 0
 
-    for block in new_ledger_unhashed:
-        if block['prev_hash'] == 0:
+    for block in new_ledger:
+        if cur_block == 0:
             prev_hash = 412
         else:
-            prev_hash = block['prev_hash']
+            prev_hash = new_ledger[cur_block-1]['prev_hash']
 
         prev_hash = int(str(prev_hash)[-2:])
-
         a = ascii(find_first_letter(block['hospital']))
         b = ascii(find_first_letter(block['patient']))
         c = ascii(block['status'])
@@ -124,6 +127,17 @@ def solve_ledger_hashes(new_ledger_unhashed):
         current_hash = nonce + intermediate_hash
         print("current hash", current_hash)
 
+        # store info
+        block['nonce'] = nonce
+        block['prev_hash'] = current_hash
+        block['a'] = a
+        block['b'] = b
+        block['c'] = c
+        block['current_hash'] = current_hash
+
+        cur_block += 1
+
+    return new_ledger
 
 def find_first_letter(string):
     """Finds first letter in a given string."""
@@ -133,7 +147,8 @@ def find_first_letter(string):
     searcher = re.search(r'[a-z]', string, re.I)
 
     if searcher is not None:
-        first_letter_index = searcher.start
+        first_letter_index = searcher.start()
+        print("***", first_letter_index)
 
     first_letter = string[first_letter_index]
 
@@ -155,9 +170,7 @@ def find_nonce(intermediate_hash):
 def ascii(letter):
     """Gets ascii value of a given letter."""
     ascii_val = ord(letter.upper())
-    
+
     return ascii_val
-
-
 
 main()
