@@ -1,6 +1,7 @@
 # Blockchain19 Program
 
 import re  # for letter finding
+from prettytable import PrettyTable
 
 
 class color:
@@ -43,9 +44,7 @@ def main():
         print("Creating a new ledger!")
         new_ledger = create_ledger()
         new_hashed_ledger = solve_ledger_hashes(new_ledger)
-
-        for block in new_hashed_ledger:
-            print("BLOCK -- ", block)
+        print_table(new_hashed_ledger)
     elif int(user_choice) == 2:
         print("Importing a previous ledger!")
         import_ledger()
@@ -140,6 +139,38 @@ def import_ledger():
     print("** IMPORTING LEDGER....")
 
 
+def print_table(ledger):
+    table = PrettyTable()
+    table.field_names = [
+        "hospital",
+        "patient",
+        "status",
+        "nonce",
+        "prev_hash",
+        "a",
+        "b",
+        "c",
+        "current_hash",
+    ]  # define field names for table
+
+    for block in ledger:
+        table.add_row(
+            [
+                block["hospital"],
+                block["patient"],
+                block["status"],
+                block["nonce"],
+                block["prev_hash"],
+                block["a"],
+                block["b"],
+                block["c"],
+                block["current_hash"],
+            ]
+        )  # add data to table
+
+    print(table)  # print prettytable of scored stock info
+
+
 def solve_ledger_hashes(new_ledger):
     """Given a imported or newly created ledger, this function will solve it's hashes."""
 
@@ -188,7 +219,6 @@ def find_first_letter(string):
 
     if searcher is not None:
         first_letter_index = searcher.start()
-        print("***", first_letter_index)
 
     first_letter = string[first_letter_index]
 
