@@ -1,5 +1,7 @@
 # Blockchain19 Program
 
+import re # for letter finding
+
 class color:
     """Defines different colors and text formatting settings to be used for CML output printing."""
 
@@ -122,8 +124,21 @@ def solve_ledger_hashes(new_ledger_unhashed):
         current_hash = nonce + intermediate_hash
         print("current hash", current_hash)
 
+
 def find_first_letter(string):
     """Finds first letter in a given string."""
+
+    first_letter_index = 0
+
+    searcher = re.search(r'[a-z]', string, re.I)
+
+    if searcher is not None:
+        first_letter_index = searcher.start
+
+    first_letter = string[first_letter_index]
+
+    return first_letter
+
 
 def find_nonce(intermediate_hash):
     """Given the hash in it's intermediate step, finds the nonce."""
@@ -135,6 +150,7 @@ def find_nonce(intermediate_hash):
             return nonce
         else:
             pass
+
 
 def ascii(letter):
     """Gets ascii value of a given letter."""
