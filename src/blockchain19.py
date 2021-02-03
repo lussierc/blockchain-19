@@ -1,6 +1,7 @@
 # Blockchain19 Program
 
 import re  # for letter finding
+import csv
 from prettytable import PrettyTable
 
 
@@ -45,9 +46,22 @@ def main():
         new_ledger = create_ledger()
         new_hashed_ledger = solve_ledger_hashes(new_ledger)
         print_table(new_hashed_ledger)
+        export_choice = input(
+            color.GREEN
+            + " - Enter 1 to Export this Ledger.\n - Enter 2 to Exit Program.\nEnter your choice: "
+            + color.END
+        )
+        if int(export_choice) == 1:
+            print("Exporting a ledger!")
+            csv_output = input("ENTER EXPORT .CSV: ")
+            export_ledger(new_hashed_ledger, csv_output)
+        else:
+            print("EXITING")
     elif int(user_choice) == 2:
         print("Importing a previous ledger!")
-        import_ledger()
+        csv_input = input("ENTER IMPORT .CSV: ")
+        imported_ledger = import_ledger(csv_input)
+        print_table(imported_ledger)
     elif int(user_choice) == 3:
         print("Opening the info center!")
         welcome_message()
@@ -134,9 +148,15 @@ def create_ledger():
     return patient_blocks
 
 
-def import_ledger():
+def import_ledger(csv_file):
     """Imports a previously exported ledger."""
     print("** IMPORTING LEDGER....")
+
+    with open(csv_file, "r") as f:
+        reader = csv.DictReader(f)  # read in csv file as dict
+        inputted_csv_list = list(reader)  # make it a list of dicts
+
+    return inputted_csv_list
 
 
 def print_table(ledger):
@@ -242,5 +262,25 @@ def ascii(letter):
 
     return ascii_val
 
+
+def export_ledger(data, write_file):
+    """Writes article data to a CSV file."""
+
+    print("Writing data to your chosen CSV file....")
+
+    keys = data[0].keys()  # gets key values to write as CSV header
+
+    with open(write_file, "w", newline="") as output_file:
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()  # write header
+        dict_writer.writerows(data)  # write the data
+
+
+def read_data(csv_file):
+    """Reads a CSV file back in."""
+
+    with open(csv_file, "r") as f:
+        reader = csv.DictReader(f)  # read in csv file as dict
+        inputted_csv_list = list(reader)  # make it a list of dicts
 
 main()
