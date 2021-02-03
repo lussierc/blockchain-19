@@ -283,4 +283,5 @@ def read_data(csv_file):
         reader = csv.DictReader(f)  # read in csv file as dict
         inputted_csv_list = list(reader)  # make it a list of dicts
 
+
 main()
