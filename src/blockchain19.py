@@ -1,6 +1,7 @@
 # Blockchain19 Program
 
-import re # for letter finding
+import re  # for letter finding
+
 
 class color:
     """Defines different colors and text formatting settings to be used for CML output printing."""
@@ -15,6 +16,7 @@ class color:
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
     END = "\033[0m"
+
 
 def main():
     """The main driver function for the project."""
@@ -31,7 +33,11 @@ def main():
         + "\n-------------------------------------------\n\n"
     )
 
-    user_choice = input(color.GREEN + " - Enter 1 to Create a New Ledger.\n - Enter 2 to Import a Previously Exported Ledger.\n - Enter 3 to view the Information Center. \nEnter your choice: " + color.END)
+    user_choice = input(
+        color.GREEN
+        + " - Enter 1 to Create a New Ledger.\n - Enter 2 to Import a Previously Exported Ledger.\n - Enter 3 to view the Information Center. \nEnter your choice: "
+        + color.END
+    )
 
     if int(user_choice) == 1:
         print("Creating a new ledger!")
@@ -46,7 +52,11 @@ def main():
     elif int(user_choice) == 3:
         print("Opening the info center!")
         welcome_message()
-        run_choice = input(color.GREEN + " Run the Program: \n - Enter 1 to Create a New Ledger.\n - Enter 2 to Import a Previously Exported Ledger.\nEnter your choice: " + color.END)
+        run_choice = input(
+            color.GREEN
+            + " Run the Program: \n - Enter 1 to Create a New Ledger.\n - Enter 2 to Import a Previously Exported Ledger.\nEnter your choice: "
+            + color.END
+        )
         if int(run_choice) == 1:
             print("Creating a new ledger!")
             create_ledger()
@@ -60,9 +70,18 @@ def main():
         print("Invalid option. Creating a new ledger!")
         create_ledger()
 
+
 def welcome_message():
     """Program welcome and information center."""
-    print(color.UNDERLINE + color.BOLD + "Key:" + color.END + color.END + "\n* A = Admitted \n* B = Stable \n* C = Moderate \n* D = Severe \n* E = Discharged \n* F = ICU")
+    print(
+        color.UNDERLINE
+        + color.BOLD
+        + "Key:"
+        + color.END
+        + color.END
+        + "\n* A = Admitted \n* B = Stable \n* C = Moderate \n* D = Severe \n* E = Discharged \n* F = ICU"
+    )
+
 
 def create_ledger():
     """Creates a new ledger."""
@@ -70,33 +89,56 @@ def create_ledger():
 
     done_adding = False
     patient_blocks = []
-    current_patient_dict = {'hospital': '', 'patient': '', 'status': '', 'nonce': 0, 'prev_hash': 0, 'a': 0, 'b': 0, 'c': 0, 'hash': 0}
+    current_patient_dict = {
+        "hospital": "",
+        "patient": "",
+        "status": "",
+        "nonce": 0,
+        "prev_hash": 0,
+        "a": 0,
+        "b": 0,
+        "c": 0,
+        "hash": 0,
+    }
 
     while done_adding is False:
         hospital_input = input(" - Enter Patient Hospital: ")
         patient_id_input = input(" - Enter Patient ID: ")
         patient_status = input(" - Enter the Patient's Status: ")
 
-        current_patient_dict['hospital'] = hospital_input
-        current_patient_dict['patient'] = patient_id_input
-        current_patient_dict['status'] = patient_status
+        current_patient_dict["hospital"] = hospital_input
+        current_patient_dict["patient"] = patient_id_input
+        current_patient_dict["status"] = patient_status
 
         print(current_patient_dict)
         patient_blocks.append(current_patient_dict)
 
-        new_block = input("*** Would you like to add another block to the blockchain? Y or N: ")
-        if str(new_block) == 'Y':
+        new_block = input(
+            "*** Would you like to add another block to the blockchain? Y or N: "
+        )
+        if str(new_block) == "Y":
             pass
-            current_patient_dict = {'hospital': '', 'patient': '', 'status': '', 'nonce': 0, 'prev_hash': 0, 'a': 0, 'b': 0, 'c': 0, 'hash': 0}
+            current_patient_dict = {
+                "hospital": "",
+                "patient": "",
+                "status": "",
+                "nonce": 0,
+                "prev_hash": 0,
+                "a": 0,
+                "b": 0,
+                "c": 0,
+                "hash": 0,
+            }
         else:
             done_adding = True
 
-    print("PRINTING LIST OF PATIENT BLOCKS: ", patient_blocks)
     return patient_blocks
+
 
 def import_ledger():
     """Imports a previously exported ledger."""
     print("** IMPORTING LEDGER....")
+
 
 def solve_ledger_hashes(new_ledger):
     """Given a imported or newly created ledger, this function will solve it's hashes."""
@@ -113,38 +155,36 @@ def solve_ledger_hashes(new_ledger):
         if cur_block == 0:
             prev_hash = 412
         else:
-            prev_hash = new_ledger[cur_block-1]['prev_hash']
+            prev_hash = new_ledger[cur_block - 1]["prev_hash"]
 
         prev_hash = int(str(prev_hash)[-2:])
-        a = ascii(find_first_letter(block['hospital']))
-        b = ascii(find_first_letter(block['patient']))
-        c = ascii(block['status'])
+        a = ascii(find_first_letter(block["hospital"]))
+        b = ascii(find_first_letter(block["patient"]))
+        c = ascii(block["status"])
 
         intermediate_hash = (a + b + c) - prev_hash
-
         nonce = find_nonce(intermediate_hash)
-
         current_hash = nonce + intermediate_hash
-        print("current hash", current_hash)
 
         # store info
-        block['nonce'] = nonce
-        block['prev_hash'] = current_hash
-        block['a'] = a
-        block['b'] = b
-        block['c'] = c
-        block['current_hash'] = current_hash
+        block["nonce"] = nonce
+        block["prev_hash"] = current_hash
+        block["a"] = a
+        block["b"] = b
+        block["c"] = c
+        block["current_hash"] = current_hash
 
-        cur_block += 1
+        cur_block += 1  # update the current block number being hashed within the ledger
 
     return new_ledger
+
 
 def find_first_letter(string):
     """Finds first letter in a given string."""
 
     first_letter_index = 0
 
-    searcher = re.search(r'[a-z]', string, re.I)
+    searcher = re.search(r"[a-z]", string, re.I)
 
     if searcher is not None:
         first_letter_index = searcher.start()
@@ -161,7 +201,6 @@ def find_nonce(intermediate_hash):
     for nonce in range(1, 4):
         test_hash = (intermediate_hash + nonce) / 3
         if test_hash.is_integer():
-            print("NONCE", nonce)
             return nonce
         else:
             pass
@@ -172,5 +211,6 @@ def ascii(letter):
     ascii_val = ord(letter.upper())
 
     return ascii_val
+
 
 main()
