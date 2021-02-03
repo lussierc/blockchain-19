@@ -98,7 +98,7 @@ def create_ledger():
         "a": 0,
         "b": 0,
         "c": 0,
-        "hash": 0,
+        "current_hash": 0,
     }
 
     while done_adding is False:
@@ -127,7 +127,7 @@ def create_ledger():
                 "a": 0,
                 "b": 0,
                 "c": 0,
-                "hash": 0,
+                "current_hash": 0,
             }
         else:
             done_adding = True
