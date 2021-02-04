@@ -184,18 +184,6 @@ def create_ledger():
     return patient_blocks
 
 
-def import_ledger(csv_file):
-    """Imports a previously exported CSV ledger."""
-
-    print("** IMPORTING LEDGER....")
-
-    with open(csv_file, "r") as f:  # opens the file
-        reader = csv.DictReader(f)  # read in csv file as dict
-        inputted_csv_list = list(reader)  # make it a list of dicts
-
-    return inputted_csv_list
-
-
 def print_table(ledger):
     table = PrettyTable()  # defines a PrettyTable object
     table.field_names = [
@@ -331,12 +319,16 @@ def export_ledger(data, write_file):
         dict_writer.writerows(data)  # write the data
 
 
-def read_data(csv_file):
-    """Reads a CSV file back in."""
+def import_ledger(csv_file):
+    """Imports a previously exported CSV ledger."""
 
-    with open(csv_file, "r") as f:
+    print("** IMPORTING LEDGER....")
+
+    with open(csv_file, "r") as f:  # opens the file
         reader = csv.DictReader(f)  # read in csv file as dict
         inputted_csv_list = list(reader)  # make it a list of dicts
+
+    return inputted_csv_list
 
 
 main()
