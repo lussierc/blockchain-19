@@ -185,7 +185,10 @@ def create_ledger():
 
 
 def print_table(ledger):
+    """Prints a table of the ledger."""
+
     table = PrettyTable()  # defines a PrettyTable object
+    
     table.field_names = [
         "hospital",
         "patient",
