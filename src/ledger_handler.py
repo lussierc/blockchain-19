@@ -1,4 +1,5 @@
 """Contains functions for updating and creating ledgers."""
+import print_content
 
 class color:
     """Defines different colors and text formatting settings to be used for CML output printing."""
@@ -67,6 +68,7 @@ def create_ledger():
 
     return patient_blocks
 
+
 def search_ledger(ledger):
     """Searches through ledger attributes."""
     search_done = False
@@ -120,11 +122,9 @@ def search_ledger(ledger):
 
                 pass
 
-        print(criteria_blocks)
+        print_content.print_table(criteria_blocks)
 
-        new_search = input(
-            "*** Would you like to perform another search? Y or N: "
-        )
+        new_search = input("*** Would you like to perform another search? Y or N: ")
 
         if str(new_search) == "Y":
             criteria_blocks = []

@@ -2,6 +2,7 @@
 
 import csv
 
+
 def export_ledger(data, write_file):
     """Writes article data to a CSV file."""
 

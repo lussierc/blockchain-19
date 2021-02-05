@@ -2,6 +2,7 @@
 
 import re
 
+
 def solve_ledger_hashes(new_ledger):
     """Given a imported or newly created ledger, this function will solve it's hashes."""
 
