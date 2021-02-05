@@ -37,19 +37,8 @@ def main():
         + "\n-------------------------------------------\n\n"
     )  # print program welcome message
 
-    user_choice = input(
-        color.GREEN
-        + color.BOLD
-        + color.UNDERLINE
-        + "How would you like to run the program?:"
-        + color.END
-        + "\n - Enter 1 to Create a New Ledger.\n - Enter 2 to Import a Previously Exported Ledger.\n - Enter 3 to view the Information Center."
-        + color.END
-        + color.BOLD
-        + "\nEnter your choice: "
-        + color.END
-        + color.END
-    )  # get user run choice
+
+    user_choice = user_options()
 
     if int(user_choice) == 1:
         print("Creating a new ledger!")
@@ -61,20 +50,7 @@ def main():
             new_hashed_ledger
         )  # prints the table with solved hashes
 
-        export_choice = input(
-            color.GREEN
-            + " - Enter 1 to Export this Ledger.\n - Enter 2 to Exit Program. \nEnter your choice: "
-            + color.END
-        )  # get user decision to export the ledger or exit
-
-        if int(export_choice) == 1:
-            print("Exporting a ledger!")
-            csv_output = input("ENTER EXPORT .CSV: ")  # get users export CSV filename
-            csv_handler.export_ledger(
-                new_hashed_ledger, csv_output
-            )  # export the solved ledger
-        else:
-            print("EXITING")  # exit the program
+        user_options_export(new_hashed_ledger)
     elif int(user_choice) == 2:
         print("Importing a previous ledger!")
         csv_input = input("ENTER IMPORT .CSV: ")
@@ -102,34 +78,16 @@ def main():
                 overall_ledger
             )  # prints the table with solved hashes
 
-            export_choice = input(
-                color.GREEN
-                + " - Enter 1 to Export this Ledger.\n - Enter 2 to Exit Program. \nEnter your choice: "
-                + color.END
-            )  # get user decision to export the ledger or exit
-            if int(export_choice) == 1:
-                print("Exporting a ledger!")
-                csv_output = input(
-                    "ENTER EXPORT .CSV: "
-                )  # get users export CSV filename
-                csv_handler.export_ledger(
-                    overall_ledger, csv_output
-                )  # export the solved ledger
-            else:
-                print("EXITING")  # exit the program
+            user_options_export(overall_ledger)
 
     elif int(user_choice) == 3:
         print("Opening the information center...\n\n\n")
         print_content.program_info()
-        run_choice = input(
-            color.GREEN
-            + " Run the Program: \n - Enter 1 to Create a New Ledger.\n - Enter 2 to Import a Previously Exported Ledger.\nEnter your choice: "
-            + color.END
-        )
-        if int(run_choice) == 1:
+        user_choice = user_options()
+        if int(user_choice) == 1:
             print("Creating a new ledger!")
             ledger_handler.create_ledger()
-        elif int(run_choice) == 2:
+        elif int(user_choice) == 2:
             print("Importing a previous ledger!")
             csv_handler.import_ledger()
         else:
@@ -139,5 +97,42 @@ def main():
         print("Invalid option. Creating a new ledger!")
         ledger_handler.create_ledger()
 
+def user_options():
+    valid_choice = False
+    while valid_choice != True:
+        user_choice = input(
+            color.GREEN
+            + color.BOLD
+            + color.UNDERLINE
+            + "How would you like to run the program?:"
+            + color.END
+            + "\n - Enter 1 to Create a New Ledger.\n - Enter 2 to Import a Previously Exported Ledger.\n - Enter 3 to view the Information Center."
+            + color.END
+            + color.BOLD
+            + "\nEnter your choice: "
+            + color.END
+            + color.END
+        )  # get user run choice
+        if int(user_choice) > 0 and int(user_choice) < 4:
+            valid_choice = True
+        else:
+            pass
+    return user_choice
 
+def user_options_export(ledger):
+    export_choice = input(
+        color.GREEN
+        + " - Enter 1 to Export this Ledger.\n - Enter 2 to Exit Program. \nEnter your choice: "
+        + color.END
+    )  # get user decision to export the ledger or exit
+    if int(export_choice) == 1:
+        print("Exporting a ledger!")
+        csv_output = input(
+            "ENTER EXPORT .CSV: "
+        )  # get users export CSV filename
+        csv_handler.export_ledger(
+            ledger, csv_output
+        )  # export the solved ledger
+    else:
+        print("EXITING")  # exit the program
 main()
