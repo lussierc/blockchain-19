@@ -2,7 +2,7 @@
 
 # necessary imports:
 import re  # for letter finding
-import csv
+import csv_handler
 from prettytable import PrettyTable
 
 
@@ -67,13 +67,13 @@ def main():
         if int(export_choice) == 1:
             print("Exporting a ledger!")
             csv_output = input("ENTER EXPORT .CSV: ")  # get users export CSV filename
-            export_ledger(new_hashed_ledger, csv_output)  # export the solved ledger
+            csv_handler.export_ledger(new_hashed_ledger, csv_output)  # export the solved ledger
         else:
             print("EXITING")  # exit the program
     elif int(user_choice) == 2:
         print("Importing a previous ledger!")
         csv_input = input("ENTER IMPORT .CSV: ")
-        imported_ledger = import_ledger(csv_input)
+        imported_ledger = csv_handler.import_ledger(csv_input)
         print_table(imported_ledger)
     elif int(user_choice) == 3:
         print("Opening the information center...\n\n\n")
@@ -88,7 +88,7 @@ def main():
             create_ledger()
         elif int(run_choice) == 2:
             print("Importing a previous ledger!")
-            import_ledger()
+            csv_handler.import_ledger()
         else:
             print("Invalid option. Creating a new ledger!")
             create_ledger()
@@ -138,6 +138,7 @@ def create_ledger():
 
     done_adding = False
     patient_blocks = []
+
     current_patient_dict = {
         "hospital": "",
         "patient": "",
@@ -188,7 +189,7 @@ def print_table(ledger):
     """Prints a table of the ledger."""
 
     table = PrettyTable()  # defines a PrettyTable object
-    
+
     table.field_names = [
         "hospital",
         "patient",
@@ -309,29 +310,7 @@ def get_ascii(letter):
     return ascii_val
 
 
-def export_ledger(data, write_file):
-    """Writes article data to a CSV file."""
 
-    print("Writing data to your chosen CSV file....")
-
-    keys = data[0].keys()  # gets key values to write as CSV header
-
-    with open(write_file, "w", newline="") as output_file:
-        dict_writer = csv.DictWriter(output_file, keys)
-        dict_writer.writeheader()  # write header
-        dict_writer.writerows(data)  # write the data
-
-
-def import_ledger(csv_file):
-    """Imports a previously exported CSV ledger."""
-
-    print("** IMPORTING LEDGER....")
-
-    with open(csv_file, "r") as f:  # opens the file
-        reader = csv.DictReader(f)  # read in csv file as dict
-        inputted_csv_list = list(reader)  # make it a list of dicts
-
-    return inputted_csv_list
 
 
 main()
