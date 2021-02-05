@@ -82,12 +82,42 @@ def main():
         print_content.print_table(imported_ledger)
 
         perform_search = input(
-            "*** Would you like to perform a search within this ledger? Y or N?:"
+            "*** Would you like to perform a search within this ledger? Y or N: "
         )
         if str(perform_search) == "Y":
             ledger_handler.search_ledger(imported_ledger)
         else:
             pass
+
+        update_ledger = input(
+            "*** Would you like to append content to this ledger? Y or N: "
+        )
+        if str(update_ledger) == "Y":
+            new_patient_blocks = ledger_handler.append_to_ledger()
+            new_hashed_ledger = hash_calcs.solve_ledger_hashes(
+                new_patient_blocks
+            )  # solves the hashes in the new ledger
+            overall_ledger = imported_ledger + new_hashed_ledger
+            print_content.print_table(
+                overall_ledger
+            )  # prints the table with solved hashes
+
+            export_choice = input(
+                color.GREEN
+                + " - Enter 1 to Export this Ledger.\n - Enter 2 to Exit Program. \nEnter your choice: "
+                + color.END
+            )  # get user decision to export the ledger or exit
+            if int(export_choice) == 1:
+                print("Exporting a ledger!")
+                csv_output = input(
+                    "ENTER EXPORT .CSV: "
+                )  # get users export CSV filename
+                csv_handler.export_ledger(
+                    overall_ledger, csv_output
+                )  # export the solved ledger
+            else:
+                print("EXITING")  # exit the program
+
     elif int(user_choice) == 3:
         print("Opening the information center...\n\n\n")
         print_content.program_info()
