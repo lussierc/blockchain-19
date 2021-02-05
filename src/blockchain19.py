@@ -77,6 +77,13 @@ def main():
         csv_input = input("ENTER IMPORT .CSV: ")
         imported_ledger = csv_handler.import_ledger(csv_input)
         print_table(imported_ledger)
+
+        perform_search = input("*** Would you like to perform a search within this ledger? Y or N?:")
+        if str(perform_search) == "Y":
+            ledger_handler.search_ledger(imported_ledger)
+        else:
+            pass
+            
     elif int(user_choice) == 3:
         print("Opening the information center...\n\n\n")
         program_info()
