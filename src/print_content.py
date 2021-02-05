@@ -2,6 +2,7 @@
 
 from prettytable import PrettyTable
 
+
 class color:
     """Defines different colors and text formatting settings to be used for CML output printing."""
 
@@ -15,6 +16,7 @@ class color:
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
     END = "\033[0m"
+
 
 def program_info():
     """Program relevant program information."""

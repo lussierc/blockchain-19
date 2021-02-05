@@ -1,6 +1,7 @@
 """Contains functions for updating and creating ledgers."""
 import print_content
 
+
 class color:
     """Defines different colors and text formatting settings to be used for CML output printing."""
 

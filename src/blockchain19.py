@@ -57,7 +57,9 @@ def main():
         new_hashed_ledger = hash_calcs.solve_ledger_hashes(
             new_ledger
         )  # solves the hashes in the new ledger
-        print_content.print_table(new_hashed_ledger)  # prints the table with solved hashes
+        print_content.print_table(
+            new_hashed_ledger
+        )  # prints the table with solved hashes
 
         export_choice = input(
             color.GREEN
@@ -106,9 +108,6 @@ def main():
     else:
         print("Invalid option. Creating a new ledger!")
         ledger_handler.create_ledger()
-
-
-
 
 
 main()
