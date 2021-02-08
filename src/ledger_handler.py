@@ -45,7 +45,6 @@ def create_ledger():
         current_patient_dict["patient"] = patient_id_input
         current_patient_dict["status"] = patient_status
 
-        print(current_patient_dict)
         patient_blocks.append(current_patient_dict)
 
         new_block = input(

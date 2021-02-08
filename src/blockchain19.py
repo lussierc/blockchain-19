@@ -51,10 +51,13 @@ def main():
         )  # prints the table with solved hashes
 
         user_options_export(new_hashed_ledger)
+
     elif int(user_choice) == 2:
-        print("Importing a previous ledger!")
-        csv_input = input("ENTER IMPORT .CSV: ")
+        print("Importing a previous ledger...")
+
+        csv_input = input("*** Please enter your import file name (.csv): ")
         imported_ledger = csv_handler.import_ledger(csv_input)
+
         print_content.print_table(imported_ledger)
 
         perform_search = input(
@@ -68,7 +71,7 @@ def main():
         update_ledger = input(
             "*** Would you like to append content to this ledger? Y or N: "
         )
-        if str(update_ledger) == "Y":
+        if update_ledger.upper() == "Y":
             new_patient_blocks = ledger_handler.append_to_ledger()
             new_hashed_ledger = hash_calcs.solve_ledger_hashes(
                 new_patient_blocks
