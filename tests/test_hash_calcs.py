@@ -4,19 +4,25 @@ import pytest
 from src import hash_calcs
 
 def test_find_first_letter_lower():
+    """Finds the first letter in a string (lowercase)."""
 
-    letter = "a"
-    first_letter = hash_calcs.find_first_letter(letter)
+    correct_letter = "a"
+    test_string = "237abj23"
 
-    assert letter == first_letter
+    first_letter = hash_calcs.find_first_letter(test_string)
+
+    assert correct_letter == first_letter
 
 
 def test_find_first_letter_upper():
+    """Finds the first letter in a string (uppercase)."""
 
-    letter = "A"
-    first_letter = hash_calcs.find_first_letter(letter)
+    correct_letter = "J"
+    test_string = "359J0aDb0"
 
-    assert letter == first_letter
+    first_letter = hash_calcs.find_first_letter(test_string)
+
+    assert correct_letter == first_letter
 
 
 def test_find_nonce():
