@@ -4,23 +4,7 @@
 import csv_handler
 import hash_calcs
 import ledger_handler
-import print_content
-
-
-class color:
-    """Defines different colors and text formatting settings to be used for CML output printing."""
-
-    PURPLE = "\033[95m"
-    CYAN = "\033[96m"
-    DARKCYAN = "\033[36m"
-    BLUE = "\033[94m"
-    GREEN = "\033[92m"
-    YELLOW = "\033[93m"
-    RED = "\033[91m"
-    BOLD = "\033[1m"
-    UNDERLINE = "\033[4m"
-    END = "\033[0m"
-
+from print_content import *
 
 def main():
     """The main driver function for the project."""
