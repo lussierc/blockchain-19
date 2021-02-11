@@ -20,10 +20,19 @@ started.
 
 This section should provide detailed description of your design. Please include a visual representation of the design of your project. This could include a technical diagram or a flowchart demonstrating how your concept works, a walk through a conceptual example, etc. 
 
-Now that we had our idea set in stone we needed to hash out (pun intended) how we were going to design and move forward with the project. 
+Now that we had our idea set in stone we needed to hash out (pun intended) how we were going to design and move forward with the project. There were several steps going forward before we started implementing our algorithm. The group needed to layout how the functionality of the program would work, what variables were we using, how was the hash going to be generated, where are we storing variables, etc. When we first started thinking about the flow of our program we ran into some functionalities that we wanted the program to have. As listed in the flow chart below, we wanted the user to have the option to start a new ledger or import and existing one. This would allow for integrity of the data as the user is now able to save data entered and enter new data without the risk of losing or entangling old data. 
 
 ![alt text](https://github.com/allegheny-computer-science-390-f2020/project-blockchain19/blob/main/resources/ProgramCycle.png)
+
+This was important to the functionality of the program and for application purposes. Now if a researcher or doctor is looking at the ledger they have an option to c
+continue the blockchain of old files, or start a new one for say 'a patient overload'. This small function made the program more dynamic and have a more realistic 
+applicable use. 
+
+Once the user selects whether to import or export the desired ledger, they will have to enter the information block by block, each patient being one block. The information that the computer needs to solve for the hash is the Patient ID, Hopsital ID, and Patient Status. These are the three variables (a,b,c) in our hash function that are required to calculate the hash variable. We used the equation below to calculate our hash function. 
+
 ![alt text]()
+
+![alt text](https://github.com/allegheny-computer-science-390-f2020/project-blockchain19/blob/main/resources/Chart.png)
 
 ## Implementation
 
