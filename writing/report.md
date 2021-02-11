@@ -22,6 +22,9 @@ This section should provide detailed description of your design. Please include 
 
 Now that we had our idea set in stone we needed to hash out (pun intended) how we were going to design and move forward with the project. 
 
+![alt text](https://github.com/allegheny-computer-science-390-f2020/project-blockchain19/blob/main/resources/ProgramCycle.png)
+![alt text]()
+
 ## Implementation
 
 This section should describe implementation details of your project (how you implemented your solution). Please describe which languages, libraries, external tools you used. This section should also provide commands (in code blocks) that are needed to run your implementation and what is needed to be installed beforehand. 
