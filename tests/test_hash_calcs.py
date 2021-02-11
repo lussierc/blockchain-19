@@ -51,6 +51,7 @@ def test_find_nonce_multiples(example_int_hashes, expected_nonces):
 
     assert calculated_nonces == expected_nonces
 
+
 @pytest.mark.parametrize(
     "example_letters, expected_asciis",
     [(["a", "A", "C", "z"], [65, 65, 67, 90])],
@@ -66,6 +67,7 @@ def test_get_ascii(example_letters, expected_asciis):
 
     assert ascii_values == expected_asciis
 
+
 @pytest.mark.parametrize(
     "input_ledger, expected_ledger",
     [([{'hospital': 'UPMC St. Margaret', 'patient': '1857D', 'status': 'A', 'nonce': 0, 'prev_hash': 0, 'a': 0, 'b': 0, 'c': 0, 'current_hash': 0}, {'hospital': 'Allegheny General', 'patient': '345F', 'status': 'C', 'nonce': 0, 'prev_hash': 0, 'a': 0, 'b': 0, 'c': 0, 'current_hash': 0}, {'hospital': 'UPMC Mercy', 'patient': '7895H', 'status': 'D', 'nonce': 0, 'prev_hash': 0, 'a': 0, 'b': 0, 'c': 0, 'current_hash': 0}, {'hospital': 'Presbyterian', 'patient': '0912L', 'status': 'E', 'nonce': 0, 'prev_hash': 0, 'a': 0, 'b': 0, 'c': 0, 'current_hash': 0}, {'hospital': 'Presbyterian', 'patient': '763W', 'status': 'B', 'nonce': 0, 'prev_hash': 0, 'a': 0, 'b': 0, 'c': 0, 'current_hash': 0}, {'hospital': 'Allegheny General', 'patient': '9783T', 'status': 'F', 'nonce': 0, 'prev_hash': 0, 'a': 0, 'b': 0, 'c': 0, 'current_hash': 0}, {'hospital': 'UPMC St. Margaret', 'patient': '1234Y', 'status': 'D', 'nonce': 0, 'prev_hash': 0, 'a': 0, 'b': 0, 'c': 0, 'current_hash': 0}], [{'hospital': 'UPMC St. Margaret', 'patient': '1857D', 'status': 'A', 'nonce': 1, 'prev_hash': 12, 'a': 85, 'b': 68, 'c': 65, 'current_hash': 207}, {'hospital': 'Allegheny General', 'patient': '345F', 'status': 'C', 'nonce': 3, 'prev_hash': 7, 'a': 65, 'b': 70, 'c': 67, 'current_hash': 198}, {'hospital': 'UPMC Mercy', 'patient': '7895H', 'status': 'D', 'nonce': 2, 'prev_hash': 98, 'a': 85, 'b': 72, 'c': 68, 'current_hash': 129}, {'hospital': 'Presbyterian', 'patient': '0912L', 'status': 'E', 'nonce': 2, 'prev_hash': 29, 'a': 80, 'b': 76, 'c': 69, 'current_hash': 198}, {'hospital': 'Presbyterian', 'patient': '763W', 'status': 'B', 'nonce': 3, 'prev_hash': 98, 'a': 80, 'b': 87, 'c': 66, 'current_hash': 138}, {'hospital': 'Allegheny General', 'patient': '9783T', 'status': 'F', 'nonce': 2, 'prev_hash': 38, 'a': 65, 'b': 84, 'c': 70, 'current_hash': 183}, {'hospital': 'UPMC St. Margaret', 'patient': '1234Y', 'status': 'D', 'nonce': 3, 'prev_hash': 83, 'a': 85, 'b': 89, 'c': 68, 'current_hash': 162}])],
@@ -75,7 +77,4 @@ def test_solve_ledger_hashes(input_ledger, expected_ledger):
 
     solved_ledger = hash_calcs.solve_ledger_hashes(input_ledger)
 
-    print(solved_ledger)
-    print()
-    print(expected_ledger)
     assert solved_ledger == expected_ledger

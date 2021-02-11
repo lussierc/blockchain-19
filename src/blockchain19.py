@@ -37,7 +37,6 @@ def main():
         + "\n-------------------------------------------\n\n"
     )  # print program welcome message
 
-
     user_choice = user_options()
 
     if int(user_choice) == 1:
@@ -100,6 +99,7 @@ def main():
         print("Invalid option. Creating a new ledger!")
         ledger_handler.create_ledger()
 
+
 def user_options():
     valid_choice = False
     while valid_choice != True:
@@ -122,6 +122,7 @@ def user_options():
             pass
     return user_choice
 
+
 def user_options_export(ledger):
     export_choice = input(
         color.GREEN
@@ -130,12 +131,10 @@ def user_options_export(ledger):
     )  # get user decision to export the ledger or exit
     if int(export_choice) == 1:
         print("Exporting a ledger!")
-        csv_output = input(
-            "ENTER EXPORT .CSV: "
-        )  # get users export CSV filename
-        csv_handler.export_ledger(
-            ledger, csv_output
-        )  # export the solved ledger
+        csv_output = input("ENTER EXPORT .CSV: ")  # get users export CSV filename
+        csv_handler.export_ledger(ledger, csv_output)  # export the solved ledger
     else:
         print("EXITING")  # exit the program
+
+
 main()
