@@ -1,25 +1,20 @@
 """Contains functions for updating and creating ledgers."""
+
 import print_content
-
-
-class color:
-    """Defines different colors and text formatting settings to be used for CML output printing."""
-
-    PURPLE = "\033[95m"
-    CYAN = "\033[96m"
-    DARKCYAN = "\033[36m"
-    BLUE = "\033[94m"
-    GREEN = "\033[92m"
-    YELLOW = "\033[93m"
-    RED = "\033[91m"
-    BOLD = "\033[1m"
-    UNDERLINE = "\033[4m"
-    END = "\033[0m"
+from print_content import color
 
 
 def create_ledger():
     """Creates a new ledger."""
-    print("** CREATING LEDGER....")
+    print(
+        "\n"
+        + color.CYAN
+        + color.BOLD
+        + "** CREATING LEDGER...."
+        + color.END
+        + color.END
+        + "\n"
+    )
 
     done_adding = False
     patient_blocks = []
@@ -36,7 +31,16 @@ def create_ledger():
         "current_hash": 0,
     }
 
+    current_block = 1
+
     while done_adding is False:
+        print(
+            color.GREEN + color.BOLD + "Enter Patient Info for Block #",
+            current_block,
+            ":",
+            color.END,
+            color.END,
+        )
         hospital_input = input(" - Enter Patient Hospital: ")
         patient_id_input = input(" - Enter Patient ID: ")
         patient_status = input(" - Enter the Patient's Status: ")
@@ -48,8 +52,11 @@ def create_ledger():
         patient_blocks.append(current_patient_dict)
 
         new_block = input(
-            "*** Would you like to add another block to the blockchain? Y or N: "
+            color.BOLD
+            + "*** Would you like to add another block to the blockchain? Y or N: "
+            + color.END
         )
+
         if str(new_block) == "Y":
             pass
             current_patient_dict = {
@@ -63,6 +70,7 @@ def create_ledger():
                 "c": 0,
                 "current_hash": 0,
             }
+            current_block += 1
         else:
             done_adding = True
 
@@ -71,7 +79,15 @@ def create_ledger():
 
 def append_to_ledger():
     """Creates a new ledger."""
-    print("** CREATING LEDGER....")
+    print(
+        "\n"
+        + color.RED
+        + color.BOLD
+        + "** Entering the APPEND LEDGER feature...."
+        + color.END
+        + color.END
+        + "\n"
+    )
 
     done_adding = False
     new_patient_blocks = []
@@ -97,12 +113,14 @@ def append_to_ledger():
         new_patient_dict["patient"] = patient_id_input
         new_patient_dict["status"] = patient_status
 
-        print(new_patient_dict)
         new_patient_blocks.append(new_patient_dict)
 
         new_block = input(
-            "*** Would you like to add another block to the blockchain? Y or N: "
+            color.BOLD
+            + "*** Would you like to add another block to the blockchain? Y or N: "
+            + color.END
         )
+
         if str(new_block) == "Y":
             pass
             new_patient_dict = {
@@ -124,6 +142,17 @@ def append_to_ledger():
 
 def search_ledger(ledger):
     """Searches through ledger attributes."""
+
+    print(
+        "\n"
+        + color.YELLOW
+        + color.BOLD
+        + "** Entering the SEARCH LEDGER feature...."
+        + color.END
+        + color.END
+        + "\n"
+    )
+
     search_done = False
 
     while search_done != True:
@@ -167,8 +196,6 @@ def search_ledger(ledger):
         criteria_blocks = []
 
         for block in ledger:
-            print("block", block[search_att])
-            print("search", search_query)
             if block[search_att] == search_query:
                 criteria_blocks.append(block)
             else:
@@ -177,7 +204,11 @@ def search_ledger(ledger):
 
         print_content.print_table(criteria_blocks)
 
-        new_search = input("*** Would you like to perform another search? Y or N: ")
+        new_search = input(
+            color.BOLD
+            + "*** Would you like to perform another search? Y or N: "
+            + color.END
+        )
 
         if str(new_search) == "Y":
             criteria_blocks = []

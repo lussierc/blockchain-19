@@ -85,4 +85,5 @@ def print_table(ledger):
             ]
         )  # add data to table
 
+    print("\n\n" + color.BOLD + "Printing Your Ledger:" + color.END)
     print(table)  # print prettytable of patient info
