@@ -83,19 +83,22 @@ program will continue to run through this procedure until there are no more bloc
 
 <!-- This section should concentrate on how you conducted evaluation of your solution. You should test your implementation with different inputs (at least ten, if it makes sense) to verify its correctness, efficiency, effectiveness, etc. as appropriate for your project. Please include the input and a sample output in code blocks or indicate where these inputs/outputs are located  (as appropriate given your implementation). Automated testing is preferred but manual testing is acceptable. You must describe the type of testing that have been done and include the output of test cases in code blocks if appropriate. -->
 
-**WRITE ABOUT Manually testing -- running the program**
+**....WRITE ABOUT Manually testing -- running the program.....**
 
 We also performed automated testing on the key components of our program using Pytest to ensure their accuracy. This was done by implementing a simple Pytest test suite and setting it up using a configuration file, `confest.py`. With this, we implemented a test suite in `tests/test_hash_calcs.py` to check the `hash_calcs.py` functions. This file contains the main functions for the program which calculate hashes for ledgers. The functions tested included the `solve_ledger_hashes()`, `find_first_letter()`, `find_nonce()`, and `get_ascii()` functions. These functions make up the core functionality of the program as they calculate hashes using the Blockchain19 hash function. These functions were tested with test cases using both singular and multiple inputs to ensure their accuracy. For example, when testing the `find_nonce()` function, we tested it once using a singular input and again using a set of parameterized inputs (as supported by Pytest). Additionally, when testing the `solve_ledger_hashes()` function, paramaterized testing was used to pass in a base ledger of patient information and an expected output of a solved ledger. Once the base ledger was passed into the `solve_ledger_hashes()` function, its values were tested against those of the expected output ledger to ensure the function correctly calculated the base ledger hashes. Automated testing allowed us to have confidence that our program can correctly calculate ledger hashes every time.
 
 *Pytest Test Suite in action:*
 ![Pytest!](https://github.com/allegheny-computer-science-390-f2020/project-blockchain19/blob/main/resources/pytest.png)
 
-By using a mix of manual and automated testing we were able to extensively evaluate our program while also ensuring it was correct. **........**
+By using a mix of manual and automated testing we were able to extensively evaluate our program while also ensuring it was correct. **..ADD BRIEF CONCLUDING REMARKS HERE......**
 
 ## Description of the challenges that you faced and how you resolved them
 
+**......ADD CHALLENGES HERE..... SOME EX:**
 - testing -- looked at previous 203 projects
 - hash function -- manual run through so we knew it worked
 - implementation -- forgot to convert lowercase letter to uppercase when calculating ascii
 
 ## If worked in a team, description of the way in which you and your team members shared the project work
+
+**...WE DID TEAMWORK HERE...**
