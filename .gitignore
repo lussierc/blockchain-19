@@ -1,6 +1,9 @@
 # Mac
 *.DS_Store
 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
 # Dropbox
 *.dropbox/attr
 
