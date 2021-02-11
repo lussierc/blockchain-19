@@ -1,4 +1,4 @@
-# Report by Add Your Name(s)
+# Report by Ryan Hilty, Christian Lussier, Jordan Wilson
 
 ## Introduction and Motivation
 
@@ -53,6 +53,31 @@ calculations and numbers being stored. Correctly passing these values on was key
 ## Implementation
 
 This section should describe implementation details of your project (how you implemented your solution). Please describe which languages, libraries, external tools you used. This section should also provide commands (in code blocks) that are needed to run your implementation and what is needed to be installed beforehand. 
+
+For the implementation of our project we decided to use the python programming language for its libraries and out prior 
+knowledge of the language. The main libraries that we used in our python program were: CSV, PRETTY Table, and RE. These 
+allowed us to import and export files, format our document output, and use ascii values for our created hash function. Our original program was all set in one file, but now we have our program running out of 5 files: blockchain19.py / csv_handler.py / hash_calcs.py / ledger_handler.py / print_content.py. blockchain19.py is the main function when the main function runs it will use the user input to decide the next step. The user can select to import a old ledger, create a new ledger, or look at the information center. The inforomation center is shown below:
+
+![alt text](Information Center)
+
+This gives a little bit of detail about the program and some of the hash values that go along in it. If the user chooses 
+to import and old ledger, it will prompt for the file name. If the file is found, it will open and allow the user to 
+start editing the previous ledger. If the user chooses to create a new ledger they will be prompted to enter the 
+Hopsital Name, Patient ID, and Patient status. It will then ask if there are more blocks to be entered and depending on 
+the user input they will decide whether to enter more data or not. Once the data is completely entered, the program will print a table with all of the data as shown below. 
+
+![alt text](Prompted Data and file print)
+
+Each file handles an important part of the program. We needed to break up our larger file as it was becoming cluttered and difficult to comprehend. 
+When looking at all of the files, the hash_calcs.py is the function that calculates the hash function. Given a new ledger the file sets the values to 
+0 and starts taking user input. To find the ascii values, we used the 'first_letter' function. This takes the first letter value in the user entered 
+string data and converts it to its correspsonding ascii value. This is crucial to be correct or else all of the calculations will be off for the 
+entire ledger. The new ascii values are added together and subtracted from the prev_hash and stored into a variable. The progrma then calls on the 
+'find_nonce' function. This function runs a simple for loop, running at a max of three times to see if the intermediate hash and the nonce are 
+divisible by 3. We used the 'is_integer' function to determine when a whole numbered was returned. Once this number was found, we stored and returned 
+the nonce. This value is then added to our intermediate hash, and stored in the new hash variables. This is our final hash for this block. Once the 
+hash is found the variables were store into a block feature and then printed for the user. If there are more hash block functions to solve, the 
+program will continue to run through this procedure until there are no more blocks found from the user input. 
 
 ## Evaluation and Testing
 
