@@ -188,7 +188,7 @@ def search_ledger(ledger):
             + color.END
             + color.END
             + color.BOLD
-            + "\nEnter your query/criterai: "
+            + "\nEnter your query/criteria: "
             + color.END
             + color.END
         )  # get user run choice
