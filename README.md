@@ -1,5 +1,30 @@
 # cs390f2021-project
 
+## Running the Project
+
+The program is implemented in Python and the use of Pip will be necessary to run the program in its current state. Ensure these are installed on your machine. In the future, we would look to use Docker or Pipenv to automate this process.
+
+### Running the Blockchain19 Program
+
+After ensuring that Python and Pip are installed on your machine, you may need to use Pip to install the necessary libraries to run the program:
+```
+pip install prettytable
+pip install csv
+pip install re
+```
+
+You can then navigate to the `src` directory by using the command `cd src`.
+
+You can then run the program by using the command `python3 blockchain19.py`
+
+### Running the Pytest Test Suite
+
+First ensure `pytest` is installed on your machine. Run `pip install pytest` if  you do not have this installed.
+
+Then from the main project directory, you can run the command `pytest tests` to run the test suite.
+
+---
+# Project Details
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -16,7 +41,7 @@ You can choose to work individually or in a team of at most three for this proje
 
 The course project invites you to explore a real-world application of cryptocurrency technologies in times of crisis and challenge. While you are free to choose the project idea, its direction and implementation technologies, your project should satisfy two broad requirements:
 
-1. It should be based on one or more principles/elements of cryptocurrency (decentralized/distributed system, consensus, incentivization, blockchain data structure, identity, transactions, etc.). 
+1. It should be based on one or more principles/elements of cryptocurrency (decentralized/distributed system, consensus, incentivization, blockchain data structure, identity, transactions, etc.).
 
 2. It should provide a mock-up solution to a real or potential problem that we (might) face in the times of crisis, whether it relates to the global pandemic, racial injustice, violence, etc., or more realistically a solution to a small part of such problem.
 
@@ -30,13 +55,13 @@ Please note that the course instructor expects students to implement and evaluat
 - implement your solution in multiple programs, utilizing the divide and conquer nature of computation;
 - include testing of your programs (either automatic - test cases, or manual - by including manually run inputs in the report);
 - document source programs by including appropriate comments in each source code file;
-- edit the two Markdown files in the `writing` directory by the stated deadlines. 
+- edit the two Markdown files in the `writing` directory by the stated deadlines.
 
 Here are some additional tips to help you design, implement, and test the source code for the final project:
 
 - In GatorGrader's absence, you should establish correctness checks for your source code.
 
--  You should test your implementation with different inputs (at least ten) to verify its correctness, efficiency, effectiveness, etc. as it makes sense for your project. 
+-  You should test your implementation with different inputs (at least ten) to verify its correctness, efficiency, effectiveness, etc. as it makes sense for your project.
 
 - Make sure to regularly commit to your GitHub repository.
 
@@ -48,9 +73,9 @@ This assignment invites you to submit, using GitHub, or present orally, the foll
 
 1. A three-paragraph written concept development document, saved in the file `writing/concept.md`, with an informative title, a description of the main concept idea, an initial listing of the tasks that you must complete, and a plan that you will follow to complete the work.
 
-2. Participation in a *Concept Design Pitch*, where you present a mock-up design of your project concept to peers in another class. 
+2. Participation in a *Concept Design Pitch*, where you present a mock-up design of your project concept to peers in another class.
 
-3. Participation in a *Code Walkthrough*. Code Walkthrough is a peer review of the code in which an author of the code leads the review process and the reviewer ask questions and spot possible errors. The instructor will act as the reviewer. Each project's team members (or a single member) is considered to be an author of the code. For each written program, the author(s) will describe the written program by going through the code and explaining the purpose of each logical sequence of lines. The reviewer will provide feedback at the end of the review session. 
+3. Participation in a *Code Walkthrough*. Code Walkthrough is a peer review of the code in which an author of the code leads the review process and the reviewer ask questions and spot possible errors. The instructor will act as the reviewer. Each project's team members (or a single member) is considered to be an author of the code. For each written program, the author(s) will describe the written program by going through the code and explaining the purpose of each logical sequence of lines. The reviewer will provide feedback at the end of the review session.
 
 4. Participation in a *Presentation and a Critique* session, where you will present your project and answer questions from instructors and peers in a joint class session.  
 
@@ -66,7 +91,7 @@ You must complete all of the aforementioned deliverables by the following due da
 
 1. **Concept Development: Thursday, January 28, 2021 by 9:30am**: After brainstorming project ideas during the class sessions, pick a concept for your course project. Write and submit a one-page concept of your project. Your concept development document should have an informative title, a description of the main idea, an initial listing of the tasks that you must complete, and a plan for completing the work. You should also describe (1) how your concept relates to crypto, (2) what problem does it attempt to address.
 
-2. **Concept Pitch: Friday, January 29, 2021**: In a joint session with Art 387, you are invited to present your conceptual design to your peers. Working in small groups, your peers are to challenge your concept in order to improve its design. To prepare for this peer review process, please prepare a few slides (2-3), including a visual representation of your concept (a diagram, flowchart, mock-up example). 
+2. **Concept Pitch: Friday, January 29, 2021**: In a joint session with Art 387, you are invited to present your conceptual design to your peers. Working in small groups, your peers are to challenge your concept in order to improve its design. To prepare for this peer review process, please prepare a few slides (2-3), including a visual representation of your concept (a diagram, flowchart, mock-up example).
 
 3. **Code Walkthrough: February 4--5, 2021**: During portions of the class sessions, you are to give a code walkthrough, highlighting the most important code that you have finished by that point. Code walkthrough is an informal process where code is reviewed for technical accuracy with the objective of finding errors and improving the quality of the code. The author(s) of the code lead the code walkthrough. The main purpose of walkthrough is to help authors gain an understanding of the content of the project and identify its potential flaws. Note that the goal of a walkthrough is an error detection (logical, compiler, run-time, output format, against development standards, etc.), not error correction. When the walkthrough is finished, the author of the output is responsible for taking the necessary actions to correct the errors.
 
@@ -76,7 +101,7 @@ You must complete all of the aforementioned deliverables by the following due da
 
 ## Receiving Assistance
 
-If you are having trouble completing any part of this project, then please talk with the course instructor during class sessions or office hours. Alternatively, you may ask questions in the Slack workspace for this course. 
+If you are having trouble completing any part of this project, then please talk with the course instructor during class sessions or office hours. Alternatively, you may ask questions in the Slack workspace for this course.
 
 ## Project Assessment
 
@@ -90,7 +115,7 @@ The grade that a student receives on this assignment will have the following com
 
 - **Presentation [up to 10% of the project grade]**: Project presentation.
 
-- **Implementation [up to 40% of the project grade]**: Project implementation. As a part of this grade, the instructor will assess aspects of the project including, but not limited to the correct and useful source code, the conduct of extensive testing, the use of effective source code comments and Git commit messages. 
+- **Implementation [up to 40% of the project grade]**: Project implementation. As a part of this grade, the instructor will assess aspects of the project including, but not limited to the correct and useful source code, the conduct of extensive testing, the use of effective source code comments and Git commit messages.
 
 - **Report [up to 25% of the lab grade]**: As a part of this grade, the instructor will assess aspects of the project including, but not limited to, the correct and descriptive Markdown report, that demonstrates mastery of the assignment's conceptual and technical understanding and knowledge.
 
