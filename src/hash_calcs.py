@@ -21,7 +21,7 @@ def solve_ledger_hashes(new_ledger):
             prev_hash = 412
         else:
             prev_hash = new_ledger[cur_block - 1][
-                "prev_hash"
+                "current_hash"
             ]  # get previous hash from previous block
 
         prev_hash = int(str(prev_hash)[-2:])  # get last two numbers of previous hash
@@ -40,7 +40,7 @@ def solve_ledger_hashes(new_ledger):
 
         # store block info:
         block["nonce"] = nonce
-        block["prev_hash"] = current_hash
+        block["prev_hash"] = prev_hash
         block["a"] = a
         block["b"] = b
         block["c"] = c
