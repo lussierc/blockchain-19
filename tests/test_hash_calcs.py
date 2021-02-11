@@ -10,7 +10,7 @@ def test_find_first_letter():
 
     assert letter == first_letter
 
-def find_nonce():
+def test_find_nonce():
     intermediate_hash = 206
     correct_nonce = 1 # the manually calculated correct nonce
 
