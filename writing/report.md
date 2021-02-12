@@ -58,6 +58,7 @@ For the implementation of our project we decided to use the python programming l
 knowledge of the language. The main libraries that we used in our python program were: CSV, PRETTY Table, and RE. These
 allowed us to import and export files, format our document output, and use ascii values for our created hash function. Our original program was all set in one file, but now we have our program running out of 5 files: blockchain19.py / csv_handler.py / hash_calcs.py / ledger_handler.py / print_content.py. blockchain19.py is the main function when the main function runs it will use the user input to decide the next step. The user can select to import a old ledger, create a new ledger, or look at the information center. The inforomation center is shown below:
 
+## ADD PICTURE HERE
 ![alt text](Information Center)
 
 This gives a little bit of detail about the program and some of the hash values that go along in it. If the user chooses
@@ -66,6 +67,7 @@ start editing the previous ledger. If the user chooses to create a new ledger th
 Hopsital Name, Patient ID, and Patient status. It will then ask if there are more blocks to be entered and depending on
 the user input they will decide whether to enter more data or not. Once the data is completely entered, the program will print a table with all of the data as shown below.
 
+## ADD PICTURE HERE
 ![alt text](Prompted Data and file print)
 
 Each file handles an important part of the program. We needed to break up our larger file as it was becoming cluttered and difficult to comprehend.
@@ -83,14 +85,22 @@ program will continue to run through this procedure until there are no more bloc
 
 <!-- This section should concentrate on how you conducted evaluation of your solution. You should test your implementation with different inputs (at least ten, if it makes sense) to verify its correctness, efficiency, effectiveness, etc. as appropriate for your project. Please include the input and a sample output in code blocks or indicate where these inputs/outputs are located  (as appropriate given your implementation). Automated testing is preferred but manual testing is acceptable. You must describe the type of testing that have been done and include the output of test cases in code blocks if appropriate. -->
 
-**....WRITE ABOUT Manually testing -- running the program.....**
+For our program to work we had to run several manual tests for our hash function. During these tests, each member would run through a set of numbers 
+set for the hash function with the goal of all returning the same number. This told us that our algorithm worked. After we implemented this we made 
+several different files for our testing. The randomness of our number generation was important to avoid collisions and make sure our program could 
+handle a wide variety of datasets. Throughout our first few tests, we ran into the issue of the nonce value returning incorrectly. Troubleshooting 
+this for feature gave us some issues. Because of our manual tests, the understanding of how the hash function was being solved helped us resolve this 
+issue. The nonce was being divided incorrectly and passing the wrong value. We were able to pinpoint this issue and resolve it by making a minor 
+change in the for loop header. 
 
 We also performed automated testing on the key components of our program using Pytest to ensure their accuracy. This was done by implementing a simple Pytest test suite and setting it up using a configuration file, `confest.py`. With this, we implemented a test suite in `tests/test_hash_calcs.py` to check the `hash_calcs.py` functions. This file contains the main functions for the program which calculate hashes for ledgers. The functions tested included the `solve_ledger_hashes()`, `find_first_letter()`, `find_nonce()`, and `get_ascii()` functions. These functions make up the core functionality of the program as they calculate hashes using the Blockchain19 hash function. These functions were tested with test cases using both singular and multiple inputs to ensure their accuracy. For example, when testing the `find_nonce()` function, we tested it once using a singular input and again using a set of parameterized inputs (as supported by Pytest). Additionally, when testing the `solve_ledger_hashes()` function, paramaterized testing was used to pass in a base ledger of patient information and an expected output of a solved ledger. Once the base ledger was passed into the `solve_ledger_hashes()` function, its values were tested against those of the expected output ledger to ensure the function correctly calculated the base ledger hashes. Automated testing allowed us to have confidence that our program can correctly calculate ledger hashes every time.
 
 *Pytest Test Suite in action:*
 ![Pytest!](https://github.com/allegheny-computer-science-390-f2020/project-blockchain19/blob/main/resources/pytest.png)
 
-By using a mix of manual and automated testing we were able to extensively evaluate our program while also ensuring it was correct. **..ADD BRIEF CONCLUDING REMARKS HERE......**
+By using a mix of manual and automated testing we were able to extensively evaluate our program while also ensuring it was correct. Without this
+testing process we would have had a lot of difficulty trying to translate the hash function into the program. Learning and working through the hash
+function allowed us to be able to smoothly and effectively create and implement this program.
 
 ## Description of the challenges that you faced and how you resolved them
 
@@ -98,6 +108,9 @@ By using a mix of manual and automated testing we were able to extensively evalu
 - testing -- looked at previous 203 projects
 - hash function -- manual run through so we knew it worked
 - implementation -- forgot to convert lowercase letter to uppercase when calculating ascii
+- troubleshooting nonce values -- returning incorrect values
+
+In every project there are bound to be some bumps along the road. 
 
 ## If worked in a team, description of the way in which you and your team members shared the project work
 
