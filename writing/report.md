@@ -7,12 +7,12 @@ how your concept is motivated by the cryptocurrency-related technology and what 
 
 Throughout the last three weeks our class have had an in depth discussion about cryptocurrencies and how they function. The algorithm behind one of the biggest
 cryptocurrencies (bitcoin) is known as blockchain. Blockchain was one of the main focus points in our class sessions as it is the key to creating and correcting the
-ledger that bitcoin runs on. This algorithm allows storage of the mining and transaction of bitcoin across the globe, a decentralized system that allows anyone to
-confirm and work with each other, while also keeping all individual parties anonymous. Blockchain is a great data way to store data and recall on those data points.
+ledger that bitcoin runs on. This algorithm allows for the storage of the mining and transaction of bitcoin across the globe, a decentralized system that allows anyone to
+confirm and work with each other, while also keeping all individual parties anonymous. Blockchain is a great data-based way to store data and recall on those data points.
 With all that we had learned over the semester we knew that a blockchain data storage algorithm based program is what our group wanted to pursue. The only thing we
-needed to create our algorithm was data to store in it. We thought about this for a few days as the data is almost as important as the algorithm its being stored
+needed to create our algorithm was the data to store in it. We thought about this for a few days as the data is almost as important as the algorithm its being stored
 in. With all of the data and research with the current global pandemic, we wanted to use mock-up covid-19 hospital / patient data. This direction was realistic in
-the way that our algorithm could store important data for hospitals and researchers without giving away the identity of any patients. Patient confidentiality is
+the way that our algorithm could store important data for hospitals and researchers without giving away the identity of any patients. This data could be used by both hospital systems and those investigating the virus alike, as researchers can use this confidential and anonymous data to learn more about the virus. Patient confidentiality is
 important to the integrity of our healthcare system, which made blockchain storage a perfect fit for this realistic application. Here is where Blockchain-19 was
 started.
 
@@ -56,10 +56,9 @@ calculations and numbers being stored. Correctly passing these values on was key
 
 For the implementation of our project we decided to use the python programming language for its libraries and out prior
 knowledge of the language. The main libraries that we used in our python program were: CSV, PRETTY Table, and RE. These
-allowed us to import and export files, format our document output, and use ascii values for our created hash function. Our original program was all set in one file, but now we have our program running out of 5 files: blockchain19.py / csv_handler.py / hash_calcs.py / ledger_handler.py / print_content.py. blockchain19.py is the main function when the main function runs it will use the user input to decide the next step. The user can select to import a old ledger, create a new ledger, or look at the information center. The information center is shown below:
+allowed us to import and export files, format our document output, and use ascii values for our created hash function. Our original program was all set in one file, but now we have our program running out of 5 files: `blockchain19.py` / `csv_handler.py` / `hash_calcs.py` / `ledger_handler.py` / `print_content.py`. `blockchain19.py` is the main function when the main function runs it will use the user input to decide the next step. The user can select to import an old ledger, create a new ledger, or look at the information center. The information center is shown below:
 
-## ADD PICTURE HERE
-![alt text](Information Center)
+![alt text](https://github.com/allegheny-computer-science-390-f2020/project-blockchain19/blob/main/resources/info_center.png)
 
 This gives a little bit of detail about the program and some of the hash values that go along in it. If the user chooses
 to import and old ledger, it will prompt for the file name. If the file is found, it will open and allow the user to
@@ -67,15 +66,14 @@ start editing the previous ledger. If the user chooses to create a new ledger th
 Hospital Name, Patient ID, and Patient status. It will then ask if there are more blocks to be entered and depending on
 the user input they will decide whether to enter more data or not. Once the data is completely entered, the program will print a table with all of the data as shown below.
 
-## ADD PICTURE HERE
-![alt text](Prompted Data and file print)
+![alt text](https://github.com/allegheny-computer-science-390-f2020/project-blockchain19/blob/main/resources/prompts.png)
 
 Each file handles an important part of the program. We needed to break up our larger file as it was becoming cluttered and difficult to comprehend.
-When looking at all of the files, the hash_calcs.py is the function that calculates the hash function. Given a new ledger the file sets the values to
+When looking at all of the files, the `hash_calcs.py` is the function that calculates the hash function. Given a new ledger the file sets the values to
 0 and starts taking user input. To find the ascii values, we used the 'first_letter' function. This takes the first letter value in the user entered
 string data and converts it to its corresponding ascii value. This is crucial to be correct or else all of the calculations will be off for the
-entire ledger. The new ascii values are added together and subtracted from the prev_hash and stored into a variable. The program then calls on the
-'find_nonce' function. This function runs a simple for loop, running at a max of three times to see if the intermediate hash and the nonce are
+entire ledger. The new ascii values are added together and subtracted from the `prev_hash` and stored into a variable. The program then calls on the
+`find_nonce()` function. This function runs a simple for loop, running at a max of three times to see if the intermediate hash and the nonce are
 divisible by 3. We used the 'is_integer' function to determine when a whole numbered was returned. Once this number was found, we stored and returned
 the nonce. This value is then added to our intermediate hash, and stored in the new hash variables. This is our final hash for this block. Once the
 hash is found the variables were store into a block feature and then printed for the user. If there are more hash block functions to solve, the
@@ -104,18 +102,10 @@ function allowed us to be able to smoothly and effectively create and implement 
 
 ## Description of the challenges that you faced and how you resolved them
 
-**......ADD CHALLENGES HERE..... SOME EX:**
-
-Some examples of the challenges that we ran into were first getting the hash function to run properly. This was a big part of our project so getting this to work properly was pretty important. In order to get the hash functions to run properly. We looked at example code that we did in class as well as hand calculating the results to make sure we were getting the correct nonces and such. Once we did a manual run through of our hash function and got the same results, we knew we implemented the program correctly. Another challenge we had ran into was testing. Since we had used Python to code our project we had to use pytest in order to make sure our output was correct. We had written test cases to find things such as first letter, nonce and ledger to make sure the results were accurate. This also helped us to ensure that our program ran properly and smoothly. The last big challenge that we had ran into was the implementation of our program. A big problem was that we had forgot to convert the lowercase letter to uppercase when calculating ascii values. Once we had make a function to fix this problem, we were able to get the proper results and output of our program. Also writing a test case for this helped ensure that our program would run properly and get the desired output.
-
-
-<!-- - testing -- looked at previous 203 projects
-- hash function -- manual run through so we knew it worked
-- implementation -- forgot to convert lowercase letter to uppercase when calculating ascii
--->
+Some examples of the challenges that we ran into were first getting the hash function to run properly. This was a big part of our project so getting this to work properly was pretty important. In order to get the hash functions to run properly. We looked at example code that we did in class as well as hand calculating the results to make sure we were getting the correct nonces and such. Once we did a manual run through of our hash function and got the same results, we knew we implemented the program correctly. Another challenge we had ran into was testing. Since we had used Python to code our project we had to use Pytest in order to make sure our output was correct. We had written test cases to find things such as first letter, nonce and ledger to make sure the results were accurate. This also helped us to ensure that our program ran properly and smoothly. The last big challenge that we had ran into was the implementation of our program. A big problem was that we had forgot to convert the lowercase letter to uppercase when calculating ascii values. Once we had make a function to fix this problem, we were able to get the proper results and output of our program. Also writing a test case for this helped ensure that our program would run properly and get the desired output.
 
 ## If worked in a team, description of the way in which you and your team members shared the project work
 
-**...WE DID TEAMWORK HERE...**
+While working as a team on this project, we were easily able to split up the work among all group members. We were given a lot of time during class session to work on this project and each time we met during class, each member would work on the program together and we would collaboratively give suggestions on what we should and can do to implement the proper functions for our program. Also as well as during class time, all of the members of our group met outside of class to discuss what we needed to do in order to stay on schedule and add more functions to our program. Each member of our team also contributed in presenting our project to our peers when it was time to do so.
 
-While working as a team on this project, we were easily able to split up the work among all group members. We were given a lot of time during class session to work on this project and each time we met during class, each member would work on the program together and we would collaboratively give suggestions on what we should and can do to implement the proper functions for our program. Also as well as class time, all of the members of our group met outside of class to discuss what we needed to do in order to stay on schedule and add more functions to our program. Each member of our team also contributed in presenting our project to our peers when it was time to do so.
+Christian helped with much of the programming while also helping to work on the presentation and report when necessary. Ryan also helped with the code while taking the lead on the report and working on the presentations. Jordan helped with both the report and code while doing much of the presentations. Overall, our team split the work evenly for the most part and we all put the same amount of time into the project.
