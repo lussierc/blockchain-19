@@ -112,7 +112,6 @@ Some examples of the challenges that we ran into were first getting the hash fun
 <!-- - testing -- looked at previous 203 projects
 - hash function -- manual run through so we knew it worked
 - implementation -- forgot to convert lowercase letter to uppercase when calculating ascii
-<<<<<<< HEAD
 -->
 
 ## If worked in a team, description of the way in which you and your team members shared the project work
