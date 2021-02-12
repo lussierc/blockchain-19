@@ -85,13 +85,13 @@ program will continue to run through this procedure until there are no more bloc
 
 <!-- This section should concentrate on how you conducted evaluation of your solution. You should test your implementation with different inputs (at least ten, if it makes sense) to verify its correctness, efficiency, effectiveness, etc. as appropriate for your project. Please include the input and a sample output in code blocks or indicate where these inputs/outputs are located  (as appropriate given your implementation). Automated testing is preferred but manual testing is acceptable. You must describe the type of testing that have been done and include the output of test cases in code blocks if appropriate. -->
 
-For our program to work we had to run several manual tests for our hash function. During these tests, each member would run through a set of numbers 
-set for the hash function with the goal of all returning the same number. This told us that our algorithm worked. After we implemented this we made 
-several different files for our testing. The randomness of our number generation was important to avoid collisions and make sure our program could 
-handle a wide variety of datasets. Throughout our first few tests, we ran into the issue of the nonce value returning incorrectly. Troubleshooting 
-this for feature gave us some issues. Because of our manual tests, the understanding of how the hash function was being solved helped us resolve this 
-issue. The nonce was being divided incorrectly and passing the wrong value. We were able to pinpoint this issue and resolve it by making a minor 
-change in the for loop header. 
+For our program to work we had to run several manual tests for our hash function. During these tests, each member would run through a set of numbers
+set for the hash function with the goal of all returning the same number. This told us that our algorithm worked. After we implemented this we made
+several different files for our testing. The randomness of our number generation was important to avoid collisions and make sure our program could
+handle a wide variety of datasets. Throughout our first few tests, we ran into the issue of the nonce value returning incorrectly. Troubleshooting
+this for feature gave us some issues. Because of our manual tests, the understanding of how the hash function was being solved helped us resolve this
+issue. The nonce was being divided incorrectly and passing the wrong value. We were able to pinpoint this issue and resolve it by making a minor
+change in the for loop header.
 
 We also performed automated testing on the key components of our program using Pytest to ensure their accuracy. This was done by implementing a simple Pytest test suite and setting it up using a configuration file, `confest.py`. With this, we implemented a test suite in `tests/test_hash_calcs.py` to check the `hash_calcs.py` functions. This file contains the main functions for the program which calculate hashes for ledgers. The functions tested included the `solve_ledger_hashes()`, `find_first_letter()`, `find_nonce()`, and `get_ascii()` functions. These functions make up the core functionality of the program as they calculate hashes using the Blockchain19 hash function. These functions were tested with test cases using both singular and multiple inputs to ensure their accuracy. For example, when testing the `find_nonce()` function, we tested it once using a singular input and again using a set of parameterized inputs (as supported by Pytest). Additionally, when testing the `solve_ledger_hashes()` function, parameterized testing was used to pass in a base ledger of patient information and an expected output of a solved ledger. Once the base ledger was passed into the `solve_ledger_hashes()` function, its values were tested against those of the expected output ledger to ensure the function correctly calculated the base ledger hashes. Automated testing allowed us to have confidence that our program can correctly calculate ledger hashes every time.
 
@@ -114,11 +114,6 @@ Some examples of the challenges that we ran into were first getting the hash fun
 - implementation -- forgot to convert lowercase letter to uppercase when calculating ascii
 <<<<<<< HEAD
 -->
-=======
-- troubleshooting nonce values -- returning incorrect values
-
-In every project there are bound to be some bumps along the road. 
->>>>>>> 6e4c8eaa66498f3798e65526d4f15c1a5354e952
 
 ## If worked in a team, description of the way in which you and your team members shared the project work
 
